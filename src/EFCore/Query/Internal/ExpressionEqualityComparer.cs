@@ -20,6 +20,32 @@ namespace Microsoft.EntityFrameworkCore.Query.Internal
     /// </summary>
     public class ExpressionEqualityComparer : IEqualityComparer<Expression>
     {
+        private static ExpressionEqualityComparer _instance;
+
+        /// <summary>
+        ///     Creates a new <see cref="ExpressionEqualityComparer" />.
+        /// </summary>
+        protected ExpressionEqualityComparer()
+        {
+        }
+
+        /// <summary>
+        ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
+        ///     directly from your code. This API may change or be removed in future releases.
+        /// </summary>
+        public static ExpressionEqualityComparer Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new ExpressionEqualityComparer();
+                }
+
+                return _instance;
+            }
+        }
+
         /// <summary>
         ///     This API supports the Entity Framework Core infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
