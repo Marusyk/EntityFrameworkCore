@@ -131,6 +131,7 @@ namespace Microsoft.EntityFrameworkCore.Metadata.Conventions.Internal
             conventionSet.ForeignKeyAddedConventions.Add(valueGeneratorConvention);
             conventionSet.ForeignKeyAddedConventions.Add(cascadeDeleteConvention);
             conventionSet.ForeignKeyAddedConventions.Add(foreignKeyIndexConvention);
+            conventionSet.ForeignKeyAddedConventions.Add(new DeleteBebaviorAttributeConvention());
 
             conventionSet.ForeignKeyRemovedConventions.Add(keyDiscoveryConvention);
             conventionSet.ForeignKeyRemovedConventions.Add(valueGeneratorConvention);
